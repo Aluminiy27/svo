@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Button</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .rotate {
+            animation: rotation 2s infinite linear;
+        }
+
+        @keyframes rotation {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(1000deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="showSecret" onclick="showSecret()">Показать секрет</button>
+        <br><br>
+        <img id="secretImage" src="bin/svo.jpg" alt="Secret Image" style="display: none; width: 200px; height: 200px;">
+        <br><br>
+        <button id="turnOnFans" style="display: none;" onclick="turnOnFans()">ВКЛЮЧАЕМ ВЕНТИЛЯТОРЫ!!!</button>
+    </div>
+
+    <script>
+        function showSecret() {
+            document.getElementById('showSecret').style.display = 'none';
+            document.getElementById('secretImage').style.display = 'block';
+            document.getElementById('turnOnFans').style.display = 'block';
+        }
+
+        function turnOnFans() {
+            document.getElementById('turnOnFans').style.display = 'none';
+            document.getElementById('secretImage').classList.add('rotate');
+        }
+    </script>
+</body>
+</html>
